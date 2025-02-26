@@ -21,7 +21,11 @@ public class PetShop {
 			opcao = scanner.nextlint();
 			scanner.nextLine(); //Consumir a quebra de linha
 			
-			
+			switch (opcao) {
+			case 1:
+				// Cadastro de um cachorro
+				
+			}
 		}
 	}
 }
