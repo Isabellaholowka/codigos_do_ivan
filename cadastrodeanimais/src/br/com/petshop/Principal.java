@@ -24,6 +24,12 @@ public class PetShop {
 			switch (opcao) {
 			case 1:
 				// Cadastro de um cachorro
+				System.out.print("Nome do Cahorro: ");
+                tring nomeCachorro = scanner.nextline();
+                System.out.print("Idade do Cachorro ");
+                int idadeCachorro = scanner.nextLine();
+                scanner.nextLine(); //consumir a quebra de linha...
+                System.out.print("Raça do Cachorro: ");
 				
 			}
 		}
