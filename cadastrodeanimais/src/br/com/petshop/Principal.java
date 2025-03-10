@@ -1,11 +1,7 @@
 package br.com.petshop;
 
-public class Petshop {
-
-}
-
-
-package br.com.petshop;
+import java.util.ArrayList;
+import java.util.Scanner;
 
 // Classe base Animal
 public class Animal {
@@ -33,7 +29,6 @@ public class Animal {
     }
 }
 
-
 package br.com.petshop;
 
 // A classe Cachorro herda de Animal
@@ -59,39 +54,11 @@ public class Cachorro extends Animal {
     }
 }
 
-
 package br.com.petshop;
 
 // A classe Gato herda de Animal
 public class Gato extends Animal {
-    private String corPelo;package br.com.petshop;
-
-import java.util.ArrayList;
-import java.util.Scanner;
-
-//Classe principal que gerencia o sistema de cadastro de animal:
-public class PetShop {
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        ArrayList<Animal> animais = new ArrayList<>(); //Lista
-        int opcao;
-        
-        do {
-            //Exibição do menu de opções
-            System.out.println("\n=== Menu ===");
-            System.out.println("1 - Cadast…System.out.println("4 - Sair");
-            System.out.print("Escolha uma opção");
-            opcao = scanner.nextlint();
-            scanner.nextLine(); //Consumir a quebra de linha
-            
-            switch (opcao) {
-            case 1:
-                // Cadastro de um cachorro
-
-                System.out.print("Nome do Cahorro: ");
-                tring nomeCachorro = scanner.nextline();
-                System.out.print("Idade do Cachorro ");
-                int idadeCachorro = scanne
+    private String corPelo;
 
     // Construtor para inicializar Gato com atributos específicos
     public Gato(String nome, int idade, String corPelo) {
@@ -112,70 +79,77 @@ public class PetShop {
     }
 }
 
-
 package br.com.petshop;
 
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public class PetShop {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        ArrayList<Animal> animais = new ArrayList<>();
+        int opcao;
 
-public static void main(String[] args) {
-Scanner scanner = new Scanner(System.in);
-ArrayList<Animal> animais = new ArrayList<>();
-int opcao;
+        do {
+            // Exibição do menu de opções
+            System.out.println("\nMENU");
+            System.out.println("1 - Cadastrar Cachorro");
+            System.out.println("2 - Cadastrar Gato");
+            System.out.println("3 - Exibir Animais");
+            System.out.println("4 - Sair");
+            System.out.print("Escolha uma opção: ");
+            opcao = scanner.nextInt();
+            scanner.nextLine();  // Consumir a quebra de linha
 
-do {
-System.out.println("\nMENU");
-System.out.println("1 - Cadastrar Cachorro");
-System.out.println("2 - Cadastrar Gato");
-System.out.println("3 - Exibir Animais");
-System.out.println("4 - Sair");
-System.out.print("Escolha uma opção:");
-opcao = scanner.nextInt();
-scanner.nextLine();
+            switch (opcao) {
+                case 1:
+                    // Cadastro de um cachorro
+                    System.out.print("Nome do cachorro: ");
+                    String nomeCachorro = scanner.nextLine();
+                    System.out.print("Idade do cachorro: ");
+                    int idadeCachorro = scanner.nextInt();
+                    scanner.nextLine();
+                    System.out.print("Raça do cachorro: ");
+                    String raca = scanner.nextLine();
+                    animais.add(new Cachorro(nomeCachorro, idadeCachorro, raca));
+                    System.out.println("Cachorro cadastrado com sucesso!");
+                    break;
 
-switch (opcao) {
-case 1:
-System.out.print("Nome do cachorro:");
-String nomeCachorro = scanner.nextLine();
-System.out.print("Idade do cachorro:");
-int idadeCachorro = scanner.nextInt();
-scanner.nextLine();
-System.out.print("Raça do cachorro: ");
-String raca = scanner.nextLine();
-animais.add(new Cachorro(nomeCachorro, idadeCachorro, raca));
-System.out.print("Cachorro cadastrado com sucesso!");
-break;
-case 2:
-System.out.print("Nome do gao:");
-String nomeGato = scanner.nextLine();
-System.out.print("Idade do gato:");
-int idadeGato = scanner.nextInt();
-scanner.nextLine();
-System.out.print("Cor do pelo do gato: ");
-String corPelo = scanner.nextLine();
-animais.add(new Gato(nomeGato, idadeGato, corPelo));
-System.out.print("Gato cadastrado com sucesso!");
-break;
-case 3:
-System.out.println("\n=== Lista de Animais==-");
-for(Animal animal: animais) {
-animal.exibirInfo();
-}
-break;
-case 4:
-System.out.println("Encerrand");
-break;
-default:
-System.out.println("Opção inválida!.");
-break;
-}
-} while (opcao != 4);
+                case 2:
+                    // Cadastro de um gato
+                    System.out.print("Nome do gato: ");
+                    String nomeGato = scanner.nextLine();
+                    System.out.print("Idade do gato: ");
+                    int idadeGato = scanner.nextInt();
+                    scanner.nextLine();
+                    System.out.print("Cor do pelo do gato: ");
+                    String corPelo = scanner.nextLine();
+                    animais.add(new Gato(nomeGato, idadeGato, corPelo));
+                    System.out.println("Gato cadastrado com sucesso!");
+                    break;
 
+                case 3:
+                    // Exibir todos os animais cadastrados
+                    exibirTodosAnimais(animais);
+                    break;
 
+                case 4:
+                    System.out.println("Encerrando o programa...");
+                    break;
 
+                default:
+                    System.out.println("Opção inválida!");
+                    break;
+            }
 
-}
+        } while (opcao != 4);
+    }
 
+    // Método para exibir todos os animais cadastrados
+    public static void exibirTodosAnimais(ArrayList<Animal> animais) {
+        System.out.println("\n=== Lista de Animais ===");
+        for (Animal animal : animais) {
+            animal.exibirInfo();
+        }
+    }
 }
